@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Portfolio Yeray Sánchez | DAW</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Portfolio y CV de Yeray Sánchez, estudiante de Desarrollo de Aplicaciones Web (DAW)." />
+  <style>
+    :root {
+      --bg: #050816;
+      --bg-light: #0f172a;
+      --accent: #38bdf8;
+      --accent-soft: rgba(56, 189, 248, 0.1);
+      --text: #e5e7eb;
+      --text-muted: #9ca3af;
+      --border-soft: #1f2933;
+      --radius-xl: 1.25rem;
+      --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.45);
+      --max-width: 1000px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top left, #1f2937 0, #020617 45%, #000 100%);
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .page {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 2.5rem 1.25rem 3rem;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .logo {
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .logo-mark {
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 30%, #38bdf8 0, #0ea5e9 40%, #0369a1 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      box-shadow: 0 10px 30px rgba(56, 189, 248, 0.5);
+    }
+
+    .logo-text {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    nav {
+      display: flex;
+      gap: 1.5rem;
+      font-size: 0.9rem;
+    }
+
+    nav a {
+      color: var(--text-muted);
+      position: relative;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -0.25rem;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      transition: width 0.2s ease;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    main {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+      gap: 2rem;
+      align-items: center;
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.98), rgba(15, 23, 42, 0.8));
+      border-radius: var(--radius-xl);
+      padding: 2rem;
+      border: 1px solid var(--border-soft);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      background: rgba(15, 23, 42, 0.9);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-bottom: 0.8rem;
+    }
+
+    .hero-badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.25);
+    }
+
+    .hero h1 {
+      font-size: clamp(1.9rem, 3vw, 2.4rem);
+      margin-bottom: 0.4rem;
+    }
+
+    .hero h1 span {
+      color: var(--accent);
+    }
+
+    .hero-subtitle {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 1.4rem;
+      max-width: 32rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .btn {
+      border-radius: 999px;
+      padding: 0.6rem 1.4rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+      border: 1px solid transparent;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease,
+        border-color 0.12s ease;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+      color: #0b1120;
+      box-shadow: 0 14px 40px rgba(56, 189, 248, 0.45);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 18px 45px rgba(56, 189, 248, 0.6);
+    }
+
+    .btn-ghost {
+      background: rgba(15, 23, 42, 0.9);
+      color: var(--text);
+      border-color: rgba(148, 163, 184, 0.4);
+    }
+
+    .btn-ghost:hover {
+      background: rgba(15, 23, 42, 1);
+      transform: translateY(-1px);
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .hero-meta-item span {
+      display: block;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #6b7280;
+      margin-bottom: 0.15rem;
+    }
+
+    .hero-visual {
+      justify-self: center;
+      width: 100%;
+      max-width: 260px;
+      aspect-ratio: 4 / 5;
+      border-radius: 1.5rem;
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      background:
+        radial-gradient(circle at top, rgba(56, 189, 248, 0.12), transparent 50%),
+        radial-gradient(circle at bottom, rgba(56, 189, 248, 0.05), transparent 55%),
+        linear-gradient(145deg, #020617, #020617);
+      padding: 1.2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-visual-inner {
+      position: absolute;
+      inset: 1.2rem;
+      border-radius: 1.2rem;
+      background:
+        linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.85));
+      border: 1px solid rgba(31, 41, 55, 0.9);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 0.9rem 0.9rem 1.1rem;
+    }
+
+    .hero-visual-header {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .hero-visual-header span {
+      padding: 0.25rem 0.55rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      font-size: 0.7rem;
+    }
+
+    .hero-visual-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      font-size: 0.7rem;
+    }
+
+    .hero-pill {
+      padding: 0.2rem 0.55rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      color: var(--text-muted);
+    }
+
+    .hero-visual-footer {
+      font-size: 0.75rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--text-muted);
+    }
+
+    .hero-progress {
+      flex: 1;
+      height: 5px;
+      border-radius: 999px;
+      background: rgba(30, 64, 175, 0.9);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero-progress-bar {
+      position: absolute;
+      inset: 0;
+      width: 60%;
+      background: linear-gradient(90deg, #38bdf8, #0ea5e9);
+    }
+
+    .section {
+      background: rgba(15, 23, 42, 0.96);
+      border-radius: var(--radius-xl);
+      padding: 1.7rem 1.6rem 1.8rem;
+      border: 1px solid var(--border-soft);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .section-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+
+    .section-subtitle {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .about-text {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      max-width: 40rem;
+    }
+
+    .about-text strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+      font-size: 0.9rem;
+    }
+
+    .skill-card {
+      background: rgba(15, 23, 42, 0.9);
+      border-radius: 1rem;
+      padding: 1rem;
+      border: 1px solid rgba(31, 41, 55, 0.95);
+    }
+
+    .skill-card-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .tag {
+      font-size: 0.78rem;
+      padding: 0.25rem 0.55rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      color: var(--text-muted);
+    }
+
+    .timeline {
+      border-left: 1px solid rgba(75, 85, 99, 0.8);
+      padding-left: 1.3rem;
+      margin-top: 0.4rem;
+      display: grid;
+      gap: 1.2rem;
+    }
+
+    .timeline-item {
+      position: relative;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -1.3rem;
+      top: 0.2rem;
+      width: 11px;
+      height: 11px;
+      border-radius: 999px;
+      border: 2px solid #38bdf8;
+      background: #020617;
+    }
+
+    .timeline-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .timeline-meta {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 0.35rem;
+    }
+
+    .timeline-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 1.1rem;
+    }
+
+    .project-card {
+      background: rgba(15, 23, 42, 0.9);
+      border-radius: 1rem;
+      padding: 1rem;
+      border: 1px solid rgba(31, 41, 55, 0.95);
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      transition: transform 0.12s ease, box-shadow 0.12s ease, border-color 0.12s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.85);
+      border-color: rgba(56, 189, 248, 0.6);
+    }
+
+    .project-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .project-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .project-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .project-links {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-top: 0.3rem;
+    }
+
+    .project-link {
+      font-size: 0.78rem;
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      color: var(--text-muted);
+    }
+
+    .project-link:hover {
+      border-color: #38bdf8;
+      color: #e5e7eb;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+      gap: 1.2rem;
+      font-size: 0.9rem;
+    }
+
+    .contact-text {
+      color: var(--text-muted);
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 0.5rem;
+      margin-top: 0.7rem;
+      font-size: 0.9rem;
+    }
+
+    .contact-item span {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #6b7280;
+      display: block;
+      margin-bottom: 0.1rem;
+    }
+
+    .contact-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      padding: 0.3rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 1);
+      border: 1px solid rgba(55, 65, 81, 0.95);
+      font-size: 0.8rem;
+    }
+
+    footer {
+      margin-top: 1.8rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 0.7rem;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 800px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      nav {
+        gap: 1rem;
+      }
+      .hero {
+        grid-template-columns: 1fr;
+      }
+      .hero-visual {
+        order: -1;
+      }
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media print {
+      body {
+        background: #fff;
+        color: #111827;
+      }
+      .page {
+        box-shadow: none;
+        padding: 1.5cm 1.5cm 1.5cm;
+      }
+      header, .hero-visual {
+        display: none;
+      }
+      .section {
+        box-shadow: none;
+        border-radius: 0.5rem;
+        background: #fff;
+        border-color: #e5e7eb;
+      }
+      .btn {
+        display: none;
+      }
+      footer {
+        color: #6b7280;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="logo">
+        <div class="logo-mark">YS</div>
+        <div class="logo-text">
+          Yeray Sánchez<br />
+          <span>Desarrollo de Aplicaciones Web</span>
+        </div>
+      </div>
+      <nav>
+        <a href="#sobre-mi">Sobre mí</a>
+        <a href="#habilidades">Habilidades</a>
+        <a href="#formacion">Formación</a>
+        <a href="#proyectos">Proyectos</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </header>
+
+    <main>
+      <!-- HERO -->
+      <section class="hero" aria-labelledby="hero-title">
+        <div>
+          <div class="hero-badge">
+            <span class="hero-badge-dot"></span>
+            Disponible para prácticas DAW
+          </div>
+          <h1 id="hero-title">
+            Hola, soy <span>Yeray</span>.<br />
+            Desarrollador Web en formación.
+          </h1>
+          <p class="hero-subtitle">
+            Estudiante de <strong>Grado Superior en Desarrollo de Aplicaciones Web (DAW)</strong>,
+            especializado en crear interfaces limpias y aplicaciones web funcionales.
+            Busco una empresa donde aportar desde el primer día mientras sigo aprendiendo.
+          </p>
+          <div class="hero-actions">
+            <a href="assets/Yeray-Sanchez-CV.pdf" class="btn btn-primary" download>
+              Descargar CV (PDF)
+            </a>
+            <a href="#proyectos" class="btn btn-ghost">
+              Ver proyectos
+            </a>
+          </div>
+          <div class="hero-meta">
+            <div class="hero-meta-item">
+              <span>Ubicación</span>
+              Madrid, España
+            </div>
+            <div class="hero-meta-item">
+              <span>Estudios</span>
+              1º / 2º GS DAW – IES Infanta Elena
+            </div>
+            <div class="hero-meta-item">
+              <span>Intereses</span>
+              Desarrollo web, SaaS, automatización
+            </div>
+          </div>
+        </div>
+
+        <aside class="hero-visual" aria-hidden="true">
+          <div class="hero-visual-inner">
+            <div class="hero-visual-header">
+              <div>Stack actual</div>
+              <span>DAW</span>
+            </div>
+            <div class="hero-visual-stack">
+              <div class="hero-pill">HTML</div>
+              <div class="hero-pill">CSS</div>
+              <div class="hero-pill">JavaScript</div>
+              <div class="hero-pill">Java</div>
+              <div class="hero-pill">SQL</div>
+              <div class="hero-pill">Git &amp; GitHub</div>
+            </div>
+            <div class="hero-visual-footer">
+              <div>
+                Nivel junior en crecimiento<br />
+                <strong>Enfoque: aprender rápido y aportar valor.</strong>
+              </div>
+              <div class="hero-progress">
+                <div class="hero-progress-bar"></div>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <!-- SOBRE MI -->
+      <section id="sobre-mi" class="section" aria-labelledby="sobre-mi-title">
+        <div class="section-header">
+          <h2 id="sobre-mi-title" class="section-title">Sobre mí</h2>
+          <p class="section-subtitle">Quién soy y qué puedo aportar a tu empresa</p>
+        </div>
+        <p class="about-text">
+          Soy <strong>Yeray Sánchez</strong>, estudiante de
+          <strong>Desarrollo de Aplicaciones Web</strong> con una fuerte orientación práctica.
+          Disfruto creando soluciones simples a problemas reales, desde páginas web para
+          pequeños negocios hasta proyectos personales más técnicos.
+          <br /><br />
+          Me considero una persona responsable, constante y con mentalidad de mejora
+          continua. Busco unas <strong>prácticas de 1º / 2º DAW</strong> donde pueda
+          aplicar lo que estoy aprendiendo, trabajar en equipo y seguir creciendo
+          como desarrollador.
+        </p>
+      </section>
+
+      <!-- HABILIDADES -->
+      <section id="habilidades" class="section" aria-labelledby="habilidades-title">
+        <div class="section-header">
+          <h2 id="habilidades-title" class="section-title">Habilidades</h2>
+          <p class="section-subtitle">Tecnologías y competencias que utilizo en el día a día</p>
+        </div>
+        <div class="skills-grid">
+          <div class="skill-card">
+            <h3 class="skill-card-title">Lenguajes y Frontend</h3>
+            <div class="skill-tags">
+              <span class="tag">HTML5</span>
+              <span class="tag">CSS3</span>
+              <span class="tag">Responsive Design</span>
+              <span class="tag">JavaScript (básico)</span>
+            </div>
+          </div>
+          <div class="skill-card">
+            <h3 class="skill-card-title">Backend y Bases de Datos</h3>
+            <div class="skill-tags">
+              <span class="tag">Java (DAW)</span>
+              <span class="tag">Programación orientada a objetos</span>
+              <span class="tag">SQL</span>
+              <span class="tag">Modelado de datos</span>
+            </div>
+          </div>
+          <div class="skill-card">
+            <h3 class="skill-card-title">Herramientas</h3>
+            <div class="skill-tags">
+              <span class="tag">Git</span>
+              <span class="tag">GitHub</span>
+              <span class="tag">VS Code</span>
+              <span class="tag">Eclipse / IntelliJ (según necesidad)</span>
+            </div>
+          </div>
+          <div class="skill-card">
+            <h3 class="skill-card-title">Competencias personales</h3>
+            <div class="skill-tags">
+              <span class="tag">Aprendizaje rápido</span>
+              <span class="tag">Trabajo en equipo</span>
+              <span class="tag">Comunicación</span>
+              <span class="tag">Responsabilidad</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FORMACION -->
+      <section id="formacion" class="section" aria-labelledby="formacion-title">
+        <div class="section-header">
+          <h2 id="formacion-title" class="section-title">Formación</h2>
+          <p class="section-subtitle">Estudios reglados y formación técnica</p>
+        </div>
+        <div class="timeline">
+          <article class="timeline-item">
+            <h3 class="timeline-title">Grado Superior en Desarrollo de Aplicaciones Web (DAW)</h3>
+            <div class="timeline-meta">
+              IES Infanta Elena – Galapagar, Madrid · 2024 – 2026
+            </div>
+            <p class="timeline-desc">
+              Formación centrada en desarrollo web front-end y back-end, bases de datos,
+              despliegue de aplicaciones y entornos de desarrollo. Trabajo con tecnologías como
+              HTML, CSS, JavaScript, Java y SQL, además de control de versiones con Git.
+            </p>
+          </article>
+          <!-- Puedes añadir aquí tu bachillerato / ESO si quieres -->
+        </div>
+      </section>
+
+      <!-- PROYECTOS -->
+      <section id="proyectos" class="section" aria-labelledby="proyectos-title">
+        <div class="section-header">
+          <h2 id="proyectos-title" class="section-title">Proyectos</h2>
+          <p class="section-subtitle">Una muestra de lo que he ido construyendo</p>
+        </div>
+        <div class="projects-grid">
+          <article class="project-card">
+            <h3 class="project-title">Landing page para pequeño negocio local</h3>
+            <p class="project-desc">
+              Página web estática para un negocio local, con estructura clara, sección de
+              servicios, reseñas y formulario de contacto. Optimizada para móvil.
+            </p>
+            <div class="project-meta">
+              <span>HTML · CSS · Responsive</span>
+            </div>
+            <div class="project-links">
+              <a href="https://tu-demo-landing.com" target="_blank" class="project-link">Ver demo</a>
+              <a href="https://github.com/tu-usuario/landing-negocio-local" target="_blank" class="project-link">Código en GitHub</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <h3 class="project-title">Gestor simple de tareas</h3>
+            <p class="project-desc">
+              Aplicación web sencilla para crear, marcar y eliminar tareas. Proyecto pensado
+              para practicar lógica en JavaScript y organización de código.
+            </p>
+            <div class="project-meta">
+              <span>HTML · CSS · JavaScript</span>
+            </div>
+            <div class="project-links">
+              <a href="https://tu-demo-todo.com" target="_blank" class="project-link">Ver demo</a>
+              <a href="https://github.com/tu-usuario/todo-app" target="_blank" class="project-link">Código en GitHub</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <h3 class="project-title">Mini CRUD de alumnos (Java + SQL)</h3>
+            <p class="project-desc">
+              Proyecto de consola / escritorio donde se pueden crear, listar, actualizar
+              y eliminar registros de alumnos conectados a una base de datos.
+            </p>
+            <div class="project-meta">
+              <span>Java · JDBC · SQL</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/tu-usuario/crud-alumnos" target="_blank" class="project-link">Código en GitHub</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- CONTACTO -->
+      <section id="contacto" class="section" aria-labelledby="contacto-title">
+        <div class="section-header">
+          <h2 id="contacto-title" class="section-title">Contacto</h2>
+          <p class="section-subtitle">Cómo podemos hablar para unas prácticas</p>
+        </div>
+        <div class="contact-grid">
+          <div class="contact-text">
+            Si crees que mi perfil encaja con lo que buscáis, estaré encantado de tener una
+            entrevista o una breve llamada. Puedo adaptarme a diferentes horarios y
+            tecnologías según las necesidades del equipo.
+          </div>
+          <div>
+            <div class="contact-list">
+              <div class="contact-item">
+                <span>Email</span>
+                <div class="contact-pill">
+                  <a href="mailto:tu-email@ejemplo.com">tu-email@ejemplo.com</a>
+                </div>
+              </div>
+              <div class="contact-item">
+                <span>LinkedIn</span>
+                <div class="contact-pill">
+                  <a href="https://www.linkedin.com/in/tu-perfil" target="_blank">
+                    linkedin.com/in/tu-perfil
+                  </a>
+                </div>
+              </div>
+              <div class="contact-item">
+                <span>GitHub</span>
+                <div class="contact-pill">
+                  <a href="https://github.com/tu-usuario" target="_blank">
+                    github.com/tu-usuario
+                  </a>
+                </div>
+              </div>
+              <div class="contact-item">
+                <span>Teléfono (opcional)</span>
+                <div class="contact-pill">
+                  +34 000 000 000
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div>© <span id="year"></span> Yeray Sánchez · Portfolio DAW</div>
+      <div class="footer-links">
+        <span>Hecho con HTML &amp; CSS</span>
+        <span>Lista para enviar como enlace o PDF</span>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Año automático en el footer
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
