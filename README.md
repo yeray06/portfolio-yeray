@@ -15,7 +15,7 @@ El sitio está desplegado mediante GitHub Pages para permitir el acceso desde cu
 
 Versión pública del portfolio:
 
-`https://yeray06.github.io/portfolio-yeray/`
+[https://yeray06.github.io/portfolio-yeray/](https://yeray06.github.io/portfolio-yeray/)
 
 ---
 
